@@ -69,3 +69,21 @@ def score_on_screen(text,color,x,y):
                                         velocity_x = init_velocity 
                                         velocity_y = 0 if event.key == pygame.K_LEFT: 
                                         velocity_x = -init_velocity
+                                        velocity_y = 0 if event.key == pygame.K_UP: 
+                                        velocity_y = -init_velocity 
+                                        velocity_x = 0 
+                                        if event.key == pygame.K_DOWN: 
+                                            velocity_y = init_velocity 
+                                            velocity_x = 0
+                                            snake_x+=velocity_x 
+                                            snake_y+=velocity_y
+                                            if abs(snake_x - apple_x)<20 and abs(snake_y - apple_y)<20: 
+                                                score+=10
+                                                apple_x = random.randint(20,width_of_screen/2)
+                                                apple_y = random.randint(20,height_of_screen/2)
+                                                snake_length+=5 if score>int(highscore):
+                                                highscore = score
+                                                gameWindow.fill(white)
+                                                score_on_screen("Score: "+str(score) + " highscore: "
+                                                ""+str(highscore),red,5,5) 
+                                                pygame.draw.rect(gameWindow,red,[apple_x,apple_y,snake_size,snake_size]) 
