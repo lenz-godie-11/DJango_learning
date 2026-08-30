@@ -30,3 +30,12 @@ def score_on_screen(text,color,x,y):
                   if event.key==pygame.K_SPACE: game()
                   pygame.display.update() 
                   clock.tick(60)
+
+
+    def game():
+        game_exit= False 
+        game_over= False 
+        snake_x=45 
+        snake_y=55
+        velocity_x= 0 
+        velocity_y= 0 
