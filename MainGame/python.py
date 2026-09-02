@@ -10,10 +10,15 @@ class Bank:
 
     def __init__(self,  bankName ):
 
-        self.customerAccounts = []
-        self.bankName = bankName
+         self.CustmerAccounts = {}
+         self.bankName = bankName
+    
+    def add_account(self, name, accountNumber, status, pin):
+        account = CustomerAccount(name, accountNumber, status, pin)
 
+        self.customerAccounts[accountNumber] = account
 
+        
 # a class for the user account 
 
 class CustomerAccount:
