@@ -1,14 +1,54 @@
-class account:
-    def account_type(self):
-        print(f"general account")
+"""Banking system"""
 
 
-class savingAccount:
-    def account_type(self):
-        print(f"saving account")
 
 
-acc1 = account()                
-acc2 = savingAccount()
-acc1.account_type()
-acc2.account_type()
+# the introduction to our banking system 
+
+
+class Bank:
+
+    def __init__(self,  bankName ):
+
+        self.customerAccounts = []
+        self.bankName = bankName
+
+
+# a class for the user account 
+
+class CustomerAccount:
+
+    def __init__(self, name , accountNumber , status ,pin , balance = 0):
+
+        self.name = name
+        self.accountNumber = accountNumber
+        self.status = status 
+        self.__pin = pin
+        self._balance = balance
+
+
+    def set_account_details(self, pin , balance = 0):
+
+        self.__pin = pin
+        self._balance = balance
+
+
+    def deposit(self , balance):
+
+        self._balance += balance
+
+
+    def withdraw(self , amount ):
+
+              if amount <= self._balance:
+                   self._balance -=amount
+                   return True
+              else:
+                    return False
+             
+
+
+
+
+
+
